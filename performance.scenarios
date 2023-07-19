@@ -1,0 +1,25 @@
+copy-do-not-track {
+    title = "Copy WITH doNotTrack()"
+    tasks = ["copy"]
+    # We only measure build ops with build-cache
+    gradle-args = ["-PdoNotTrack=true", "--build-cache"]
+    measured-build-ops = [
+        "org.gradle.internal.execution.steps.CaptureStateBeforeExecutionStep.Operation",
+        "org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.Operation",
+        "org.gradle.internal.execution.steps.ExecuteStep.Operation",
+        "org.gradle.operations.execution.ExecuteWorkBuildOperationType"
+    ]
+}
+
+copy {
+    title = "Copy WITHOUT doNotTrack()"
+    tasks = ["copy"]
+    # We only measure build ops with build-cache
+    gradle-args = ["-PdoNotTrack=false", "--build-cache"]
+    measured-build-ops = [
+        "org.gradle.internal.execution.steps.CaptureStateBeforeExecutionStep.Operation",
+        "org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.Operation",
+        "org.gradle.internal.execution.steps.ExecuteStep.Operation",
+        "org.gradle.operations.execution.ExecuteWorkBuildOperationType"
+    ]
+}

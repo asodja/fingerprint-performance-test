@@ -1,0 +1,11 @@
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
+
+gradle-user-home/
+profile-out/
+profile-out-*
+.idea/
+.DS_Store
